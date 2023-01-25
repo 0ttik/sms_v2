@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sms/sms.dart';
+import 'package:sms_v2/sms.dart';
 
 class MessageGroupService {
   static MessageGroupService of(BuildContext context) {
@@ -13,8 +13,9 @@ class MessageGroupService {
   List<Group> groupByDate(List<SmsMessage> messages) {
     final groups = new _GroupCollection();
     messages.forEach((message) {
-      String groupLabel =
-          MaterialLocalizations.of(context).formatFullDate(message.date);
+      final date = message.date;
+      final groupLabel =
+          date == null ? 'null' : MaterialLocalizations.of(context).formatFullDate(date);
       if (groups.contains(groupLabel)) {
         groups.get(groupLabel).addMessage(message);
       } else {

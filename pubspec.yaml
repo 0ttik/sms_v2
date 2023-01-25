@@ -1,15 +1,15 @@
-name: sms
+name: sms_v2
 description: SMS library for Flutter applications. Its allow to send, receive, query sms messages, sms delivery and query contacts info. It exposes an easy and friendly API for developing a completely functional sms app in Flutter.
-version: 0.2.4
-author: "babariviere <babathriviere@gmail.com>"
-homepage: "https://github.com/babariviere/flutter_sms"
+version: 1.0.0
+homepage: "https://github.com/0ttik/sms_v2"
 
 dependencies:
   flutter:
     sdk: flutter
 
 environment:
-  sdk: ">=1.19.0 <3.0.0"
+  sdk: '>=2.18.4 <3.0.0'
+  flutter: '>=3.3.0'
 
 analyzer:
   strong-mode: true
@@ -29,8 +29,10 @@ linter:
 # The following section is specific to Flutter.
 flutter:
   plugin:
-    androidPackage: com.babariviere.sms
-    pluginClass: SmsPlugin
+    platforms:
+      android:
+        package: com.babariviere.sms
+        pluginClass: SmsPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
@@ -43,7 +45,7 @@ flutter:
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 
-  # To add custom fonts to your plugin package, add a fonts section here,
+  # To add custom fonts to your plugin package, add a 2fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For

@@ -1,13 +1,15 @@
+[![pub package](https://img.shields.io/pub/v/logger_flutter_v2.svg)](https://pub.dev/packages/logger_flutter_v2)
+
 ![xxhdpi](https://user-images.githubusercontent.com/37498811/41118114-d9cad440-6ab0-11e8-9254-68d6aac245be.png)
-
-# [UNMAINTAINED] This project is unmaintained
-
 
 # Flutter SMS
 
 This is an SMS library for flutter.
 
-It only support Android for now (I can't do it for iOS because I don't own Mac).
+It is a fork from the [original](https://github.com/babariviere/flutter_sms) unmaintained library. Main focus is to make it usable for my case
+for that minimum changes are done which is migration to null-safety.
+
+Feel free to open issues or contribute.
 
 ## Getting Started
 
@@ -36,7 +38,7 @@ Then run the command `flutter packages get` on the console.
 Add the import statement for `sms` and create an instance of the *SmsQuery* class:
 
 ```dart
-import 'package:sms/sms.dart';
+import 'package:sms_v2/sms.dart';
 
 void main() {
   SmsQuery query = new SmsQuery();
@@ -138,7 +140,7 @@ print(profile.fullName);
 What about sending a SMS? All you have to do is to create an instance of the `SmsSender` class:
 
 ```dart
-import 'package:sms/sms.dart';
+import 'package:sms_v2/sms.dart';
 
 void main() {
   SmsSender sender = new SmsSender();
@@ -151,7 +153,7 @@ void main() {
 To be notified when the message is sent and/or delivered, you must add a listener to your message:
 
 ```dart
-import 'package:sms/sms.dart';
+import 'package:sms_v2/sms.dart';
 
 void main() {
   SmsSender sender = new SmsSender();
@@ -199,7 +201,7 @@ sender.sendSMS(message, simCard: card);
 If you want to be notified for incoming new messages you must subscribe to an instance of the `SmsReceiver` class:
 
 ```dart
-import 'package:sms/sms.dart';
+import 'package:sms_v2/sms.dart';
 
 void main() {
   SmsReceiver receiver = new SmsReceiver();

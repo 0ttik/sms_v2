@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sms/contact.dart';
-import 'package:sms/sms.dart';
+import 'package:sms_v2/sms.dart';
 
 import '../conversations/avatar.dart';
 import 'arrow_painter.dart';

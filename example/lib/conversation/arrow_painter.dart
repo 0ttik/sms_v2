@@ -7,7 +7,10 @@ class ArrowPainter extends CustomPainter {
   final ArrowDirection direction;
   final _paint = new Paint();
 
-  ArrowPainter({this.color, this.direction}) {
+  ArrowPainter({
+    required this.color,
+    required this.direction,
+  }) {
     _paint.color = this.color;
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:sms/contact.dart';
-import 'package:sms/sms.dart';
+import 'package:sms_v2/contact.dart';
+import 'package:sms_v2/sms.dart';
 import '../sim/sim_bloc_provider.dart';
 
 typedef void MessageSentCallback(SmsMessage message);
@@ -92,9 +92,9 @@ class FormSend extends StatelessWidget {
 
   void _notifyDelivery(SmsMessage message, BuildContext context) async {
     final contacts = new ContactQuery();
-    Contact contact = await contacts.queryContact(message.address);
+    final contact = await contacts.queryContact(message.address);
     final snackBar = new SnackBar(
-        content: new Text('Message to ${contact.fullName} delivered'));
-    Scaffold.of(context).showSnackBar(snackBar);
+        content: new Text('Message to ${contact?.fullName} delivered'));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:sms/contact.dart';
-import 'package:sms/sms.dart';
+import 'package:sms_v2/contact.dart';
+import 'package:sms_v2/sms.dart';
 
 import '../utils/colors.dart';
 import 'conversationStore.dart';

@@ -1,6 +1,10 @@
 name: sms_example
 description: Demonstrates how to use the sms plugin.
 
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+  flutter: '>=3.3.10 <3.4.0'
+
 dependencies:
   flutter:
     sdk: flutter
@@ -13,7 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  sms:
+  sms_v2:
     path: ../
 
 # For information on the generic Dart part of this file, see the

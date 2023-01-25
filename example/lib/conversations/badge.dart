@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sms/sms.dart';
+import 'package:sms_v2/sms.dart';
 
 class Badge extends StatelessWidget {
   Badge(this.messages) : super();
@@ -24,7 +24,7 @@ class Badge extends StatelessWidget {
 
   int _countUnreadMessages() {
     return messages
-        .where((msg) => msg.kind == SmsMessageKind.Received && !msg.isRead)
+        .where((msg) => msg.kind == SmsMessageKind.Received && msg.isRead == false)
         .length;
   }
 }

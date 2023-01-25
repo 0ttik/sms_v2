@@ -1,3 +1,7 @@
+## [1.0.0]
+
+* Migrate to null-safety, refactor old code
+
 ## [0.2.4] - 2018-09-30
 
 * Add fail state

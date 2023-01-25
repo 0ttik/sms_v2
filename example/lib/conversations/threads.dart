@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:sms/contact.dart';
-import 'package:sms/sms.dart';
+import 'package:sms_v2/sms.dart';
 
 import 'thread.dart';
 
@@ -12,15 +12,15 @@ class Threads extends StatefulWidget {
 
 class _ThreadsState extends State<Threads> with TickerProviderStateMixin {
   bool _loading = true;
-  List<SmsThread> _threads;
-  UserProfile _userProfile;
+  List<SmsThread>? _threads;
+  UserProfile? _userProfile;
   final SmsQuery _query = new SmsQuery();
   final SmsReceiver _receiver = new SmsReceiver();
   final UserProfileProvider _userProfileProvider = new UserProfileProvider();
   final SmsSender _smsSender = new SmsSender();
 
   // Animation
-  AnimationController opacityController;
+  late final AnimationController opacityController;
 
   @override
   void initState() {
@@ -32,7 +32,10 @@ class _ThreadsState extends State<Threads> with TickerProviderStateMixin {
 
     // Animation
     opacityController = new AnimationController(
-        duration: const Duration(milliseconds: 500), vsync: this, value: 0.0);
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+      value: 0.0,
+    );
   }
 
   @override
@@ -108,9 +111,10 @@ class _ThreadsState extends State<Threads> with TickerProviderStateMixin {
 
   void _onSmsDelivered(SmsMessage sms) async {
     final contacts = new ContactQuery();
-    Contact contact = await contacts.queryContact(sms.address);
+    final contact = await contacts.queryContact(sms.address);
     final snackBar = new SnackBar(
-        content: new Text('Message to ${contact.fullName} delivered'));
-    Scaffold.of(context).showSnackBar(snackBar);
+      content: new Text('Message to ${contact?.fullName} delivered'),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
