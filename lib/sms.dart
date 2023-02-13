@@ -28,7 +28,7 @@ enum SmsMessageKind {
 ///
 /// Used to send message or used to read message.
 class SmsMessage implements Comparable<SmsMessage> {
-  int _id;
+  int? _id;
   int? _threadId;
   String _address;
   String _body;
@@ -37,13 +37,12 @@ class SmsMessage implements Comparable<SmsMessage> {
   DateTime? _dateSent;
   SmsMessageKind? _kind;
   SmsMessageState _state = SmsMessageState.None;
-  StreamController<SmsMessageState> _stateStreamController =
-      new StreamController<SmsMessageState>();
+  StreamController<SmsMessageState> _stateStreamController = new StreamController<SmsMessageState>();
 
   SmsMessage({
     required String address,
     required String body,
-    required int id,
+    int? id,
     int? threadId,
     bool? read,
     DateTime? date,
@@ -69,8 +68,8 @@ class SmsMessage implements Comparable<SmsMessage> {
   /// }
   /// ```
   factory SmsMessage.fromJson(Map data) {
-    final date = data['date'];
-    final dateSent = date['date_sent'];
+    final date = data['date'] as int?;
+    final dateSent = data['date_sent'] as int?;
     return SmsMessage(
       address: data['address'],
       body: data['body'],
@@ -149,7 +148,7 @@ class SmsMessage implements Comparable<SmsMessage> {
 
   @override
   int compareTo(SmsMessage other) {
-    return other._id - this._id;
+    return (other._id ?? 0) - (this._id ?? 0);
   }
 }
 
@@ -286,8 +285,7 @@ class SmsSender {
   final EventChannel _stateChannel;
   Map<int, SmsMessage> _sentMessages;
   int _sentId = 0;
-  final StreamController<SmsMessage> _deliveredStreamController =
-      new StreamController<SmsMessage>();
+  final StreamController<SmsMessage> _deliveredStreamController = new StreamController<SmsMessage>();
 
   factory SmsSender() {
     if (_instance == null) {
