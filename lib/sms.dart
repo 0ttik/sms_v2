@@ -69,8 +69,8 @@ class SmsMessage implements Comparable<SmsMessage> {
   /// }
   /// ```
   factory SmsMessage.fromJson(Map data) {
-    final date = data['date'];
-    final dateSent = date['date_sent'];
+    final date = data['date'] as int?;
+    final dateSent = data['date_sent'] as int?;
     return SmsMessage(
       address: data['address'],
       body: data['body'],
